@@ -18,6 +18,10 @@ func (k msgServer) ApproveLoan(goCtx context.Context, msg *types.MsgApproveLoan)
         return nil, sdkerrors.Wrapf(sdkerrors.ErrKeyNotFound, "key %d doesn't exist", msg.Id)
     }
 
+	if loan.State != "requested" {
+        return nil, sdkerrors.Wrapf(types.ErrWrongLoanState, "%v", loan.State)
+    }
+
 	lender, _ := sdk.AccAddressFromBech32(msg.Creator)
 	borrower, _ := sdk.AccAddressFromBech32(loan.Borrower)
 	amount, err := sdk.ParseCoinsNormalized(loan.Amount)
