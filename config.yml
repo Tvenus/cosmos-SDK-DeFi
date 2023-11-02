@@ -3,6 +3,7 @@ accounts:
 - name: alice
   coins:
   - 20000token
+  - 10000foocoin
   - 200000000stake
 - name: bob
   coins:
