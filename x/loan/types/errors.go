@@ -10,3 +10,7 @@ import (
 var (
 	ErrSample = sdkerrors.Register(ModuleName, 1100, "sample error")
 )
+
+var (
+    ErrWrongLoanState = sdkerrors.Register(ModuleName, 2, "wrong loan state")
+)
