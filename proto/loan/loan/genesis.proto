@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package loan.loan;
+
+import "gogoproto/gogo.proto";
+import "loan/loan/params.proto";
+import "loan/loan/loan.proto";
+
+option go_package = "loan/x/loan/types";
+
+// GenesisState defines the loan module's genesis state.
+message GenesisState {
+           Params params    = 1 [(gogoproto.nullable) = false];
+  repeated Loan   loanList  = 2 [(gogoproto.nullable) = false];
+           uint64 loanCount = 3;
+}
+
